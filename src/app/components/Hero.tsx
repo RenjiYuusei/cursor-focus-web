@@ -96,7 +96,7 @@ export default function Hero() {
               <ArrowDownIcon className="w-5 h-5 transform group-hover:translate-y-1 transition-transform" />
             </a>
             <a
-              href="https://github.com/yourusername/CursorFocus"
+              href="https://github.com/RenjiYuusei/CursorFocus"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white px-8 py-4 rounded-xl font-medium transition-all duration-300"
