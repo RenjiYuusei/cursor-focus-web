@@ -24,7 +24,7 @@ const platforms: Record<'windows' | 'mac', Platform> = {
     steps: [
       {
         title: 'Clone Repository',
-        command: 'git clone https://github.com/yourusername/CursorFocus.git',
+        command: 'git clone https://github.com/RenjiYuusei/CursorFocus.git',
       },
       {
         title: 'Install Dependencies',
@@ -43,7 +43,7 @@ const platforms: Record<'windows' | 'mac', Platform> = {
     steps: [
       {
         title: 'Clone Repository',
-        command: 'git clone https://github.com/yourusername/CursorFocus.git',
+        command: 'git clone https://github.com/RenjiYuusei/CursorFocus.git',
       },
       {
         title: 'Install Dependencies',
