@@ -37,7 +37,7 @@ const usageGuides: Guide[] = [
     description: 'CursorFocus generates a .cursorrules file in your project directory.',
     icon: DocumentIcon,
     details: [
-      'Create rules for your Ai to follow',
+      'Create Rules For Your Ai To Follow',
     ],
     color: 'from-blue-400 to-blue-600',
     gradient: 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
