@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import styles from '../styles/animations.module.css'
 
 const links = [
   {
@@ -48,9 +49,9 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900 text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="col-span-1 lg:col-span-2">
             <motion.div
@@ -59,24 +60,24 @@ export default function Footer() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-4">
-                Cursor<span className="text-blue-500">Focus</span>
+              <h2 className={`text-3xl font-bold mb-4 ${styles.shimmer}`}>
+                Cursor<span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">Focus</span>
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
                 A lightweight tool that maintains a focused view of your project structure and environment.
                 Automatically tracks your files, functions, and environment variables.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-6">
                 {socialLinks.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className={`text-gray-400 hover:text-white transition-colors ${styles['hover-scale']}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <span className="sr-only">{item.name}</span>
-                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                    <item.icon className="h-8 w-8" aria-hidden="true" />
                   </a>
                 ))}
               </div>
@@ -91,20 +92,25 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: groupIdx * 0.1 }}
               viewport={{ once: true }}
+              className={`${styles.glass} rounded-2xl p-6 backdrop-blur-sm border border-white/10`}
             >
-              <h3 className="text-lg font-semibold mb-4 text-blue-500">
+              <h3 className="text-xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
                 {group.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {group.items.map((link) => (
-                  <li key={link.label}>
+                  <motion.li
+                    key={link.label}
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors inline-flex items-center group"
+                      className="text-gray-300 hover:text-white transition-colors inline-flex items-center group"
                     >
                       <span className="relative">
                         {link.label}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300" />
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-600 group-hover:w-full transition-all duration-300" />
                       </span>
                       <svg
                         className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -115,7 +121,7 @@ export default function Footer() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </Link>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
@@ -127,9 +133,9 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+          className="border-t border-gray-800/50 mt-16 pt-8 text-center text-gray-400"
         >
-          <p>
+          <p className="text-sm">
             &copy; {new Date().getFullYear()} CursorFocus. All rights reserved.
           </p>
         </motion.div>
